@@ -16,6 +16,9 @@
     "value.converter.schemas.enable": "true",
     "value.converter.schema.registry.url": "http://schema-registry:8081",
     "transforms": "unwrap",
-    "transforms.unwrap.type": "io.debezium.transforms.UnwrapFromEnvelope"
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.add.headers": "op,table,lsn,source.ts_ms",
+    "transforms.unwrap.drop.tombstones": "false",
+    "transforms.unwrap.delete.handling.mode": "rewrite"
   }
 }
